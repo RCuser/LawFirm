@@ -1,0 +1,35 @@
+import java.sql.*;
+import javax.swing.table.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import java.io.*;
+import java.util.*;
+
+public class LawFirmModel  {
+
+ 
+
+
+    LawFirmModel() {
+        String  url = "jdbc:oracle:thin:@delphi.cs.csubak.edu:1521:dbs01",
+                user="winter342", passwd="c3m4p2s";
+        try {
+                DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+                cnn = DriverManager.getConnection(url, user, passwd);
+                cnn.setAutoCommit(true);
+                stmt = cnn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                getResultSet(sql);
+        } catch (SQLException e ) { e.printStackTrace(); System.exit(-1); }
+    }
+
+	Connection  	cnn;
+    Statement   	stmt;
+    CallableStatement   cstmt;
+    ResultSet   	resultSet;
+    Vector<String>      columnTitles;
+    int currentRow = 0, columnCount = 0, recordCount = 0;
+    boolean sortAsc = true;
+    File file = null;
+}

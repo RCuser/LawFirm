@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="461cc243-6f55-4400-80c8-34682022c4ff">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="caseNUM" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT DISTINCT
+     CRAK_CASETOALL."ATTORNEYID" AS CRAK_CASETOALL_ATTORNEYID,
+     CRAK_CASETOALL."FNAME" AS CRAK_CASETOALL_FNAME,
+     CRAK_CASETOALL."LNAME" AS CRAK_CASETOALL_LNAME,
+     CRAK_CASETOALL."CASEID" AS CRAK_CASETOALL_CASEID,
+     CRAK_CASETOALL."SDATE" AS CRAK_CASETOALL_SDATE,
+     CRAK_CASETOALL."EDATE" AS CRAK_CASETOALL_EDATE,
+     CRAK_CASETOALL."JFNAME" AS CRAK_CASETOALL_JFNAME,
+     CRAK_CASETOALL."JLNAME" AS CRAK_CASETOALL_JLNAME,
+     CRAK_CASETOALL."OFNAME" AS CRAK_CASETOALL_OFNAME,
+     CRAK_CASETOALL."OLNAME" AS CRAK_CASETOALL_OLNAME,
+     CRAK_CASETOALL."CFNAME" AS CRAK_CASETOALL_CFNAME,
+     CRAK_CASETOALL."CLNAME" AS CRAK_CASETOALL_CLNAME,
+     CRAK_CASETOALL."DESCRIPTION" AS CRAK_CASETOALL_DESCRIPTION,
+     CRAK_CASETOALL."NAME" AS CRAK_CASETOALL_NAME,
+     CRAK_CASETOALL."APNAME" as CRAK_CASETOALL_APNAME,
+     CRAK_CASETOALL."APSTREET" as CRAK_CASETOALL_APSTREET,
+     CRAK_CASETOALL."APCITY" as CRAK_CASETOALL_APCITY
+FROM
+     "WINTER342"."CRAK_CASETOALL" CRAK_CASETOALL
+WHERE CRAK_CASETOALL."CASEID" = $P{caseNUM}]]>
+	</queryString>
+	<field name="CRAK_CASETOALL_CLNAME" class="java.lang.String"/>
+	<field name="CRAK_CASETOALL_CFNAME" class="java.lang.String"/>
+	<field name="CRAK_CASETOALL_LNAME" class="java.lang.String"/>
+	<field name="CRAK_CASETOALL_FNAME" class="java.lang.String"/>
+	<field name="CRAK_CASETOALL_NAME" class="java.lang.String"/>
+	<field name="CRAK_CASETOALL_JLNAME" class="java.lang.String"/>
+	<field name="CRAK_CASETOALL_JFNAME" class="java.lang.String"/>
+	<field name="CRAK_CASETOALL_OLNAME" class="java.lang.String"/>
+	<field name="CRAK_CASETOALL_OFNAME" class="java.lang.String"/>
+	<field name="CRAK_CASETOALL_SDATE" class="java.sql.Timestamp"/>
+	<field name="CRAK_CASETOALL_APNAME" class="java.lang.String"/>
+	<field name="CRAK_CASETOALL_APCITY" class="java.lang.String"/>
+	<field name="CRAK_CASETOALL_APSTREET" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="0a8252ad-5c57-426a-a7cc-035957e770bc"/>
+				<staticText>
+					<reportElement x="20" y="20" width="139" height="43" forecolor="#FFFFFF" uuid="87ea92bc-f70c-4fdb-8745-ed5e2a258d0f"/>
+					<textElement>
+						<font size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Case Report]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="27" y="63" width="30" height="20" forecolor="#FFFFFF" uuid="6698fd9c-3e70-4981-9702-507f62ebac49"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="f79edeba-59ce-47b0-bb85-757c24d3f268"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="306">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="2f5ee893-b439-4ff0-a08e-000f597f5be0"/>
+			</line>
+			<staticText>
+				<reportElement x="107" y="45" width="7" height="20" uuid="d44084c4-e8f9-4155-8203-2028ea6c0735"/>
+				<text><![CDATA[,]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="7" y="45" width="100" height="20" uuid="8a60cbee-1131-45a3-b4a7-b8f8fb131f1b"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_CLNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="114" y="45" width="88" height="20" uuid="b7465452-9092-45b7-aa82-6ea5e314857b"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_CFNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="7" y="99" width="100" height="20" uuid="01e950e2-0b33-41db-afb3-e0e615581b9f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_LNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="114" y="99" width="88" height="20" uuid="d46cc5d0-73e5-4559-ab10-e32b2b41f249"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_FNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="287" y="46" width="263" height="19" uuid="d1da8087-10d2-4a45-b4a2-77f8f0b7afaa"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="7" y="155" width="100" height="20" uuid="2efc4e8f-afbd-417c-ad89-2c9bf658bb3d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_JLNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="114" y="155" width="88" height="20" uuid="d619d4e2-02c9-404d-ab83-d1e24e430dff"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_JFNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="7" y="213" width="93" height="20" uuid="3a171fb1-2120-48d7-a235-105b05b0144c"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_OLNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="107" y="213" width="95" height="20" uuid="01533587-9d02-41a4-8252-20a07af95600"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_OFNAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="79" width="100" height="20" uuid="eb344a4a-507f-4fce-bb49-d135b6584f61"/>
+				<text><![CDATA[Attorney]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="99" width="7" height="20" uuid="dccc90ad-3ad3-4b67-8a51-b015ccce206a"/>
+				<text><![CDATA[,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="135" width="100" height="20" uuid="d0c7f6b6-37cf-4a39-b13e-9116a05b630e"/>
+				<text><![CDATA[Judge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="193" width="100" height="20" uuid="53aeba9a-6e9e-4a29-9669-27e3f2d0068d"/>
+				<text><![CDATA[Opposing Attorney]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="213" width="7" height="20" uuid="49a98414-ddca-49bb-a29a-1122968f2672"/>
+				<text><![CDATA[,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="25" width="100" height="20" uuid="65e9b40f-c95c-4a70-8a39-298e1ee0d795"/>
+				<text><![CDATA[Case Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="155" width="7" height="20" uuid="7d76a5f7-6d84-42d0-8209-0df8403855b2"/>
+				<text><![CDATA[,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="25" width="100" height="20" uuid="34a329e9-69eb-463e-a771-18c0dec57628"/>
+				<text><![CDATA[Client]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="287" y="99" width="126" height="20" uuid="4664f69e-e5a8-4852-808e-037f48295342"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_SDATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="287" y="79" width="127" height="20" uuid="5a41de3a-b78f-4734-840f-17155cf45ce3"/>
+				<text><![CDATA[Court Appearance Date]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="287" y="155" width="263" height="19" uuid="75a5f2cc-1e7a-4135-a2b1-64a65ece0fac"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_APNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="287" y="213" width="263" height="19" uuid="b5206fd2-60da-4062-8d50-1271f5a3272e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_APSTREET}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="287" y="263" width="263" height="19" uuid="26ccd66d-5e65-4275-a7f5-5db797b36c3b"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_CASETOALL_APCITY}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="287" y="135" width="100" height="20" uuid="ea9b3181-1ec1-4266-b260-c7315ad68056"/>
+				<text><![CDATA[Courthouse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="193" width="100" height="20" uuid="e39246ba-5e46-48fa-82ff-ad20c84429a6"/>
+				<text><![CDATA[Courthouse Street]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="243" width="100" height="20" uuid="6f9ab3dd-74f1-4337-86e8-a587f25e2d08"/>
+				<text><![CDATA[Courthouse City]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="24" width="515" height="13" backcolor="#E6E6E6" uuid="d9036913-dc58-47ac-ac70-16a7caadfa24"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="510" y="24" width="40" height="13" backcolor="#E6E6E6" uuid="59f2708a-6422-45aa-b1a6-6391a57e2801"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="24" width="100" height="13" uuid="e708a231-35c6-4c59-9d8b-af6c1009ea4c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

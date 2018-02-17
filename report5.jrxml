@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f07bf9c0-0e5e-4aa6-9088-13d1cef6a461">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="attorneyNUM" class="java.lang.Integer"/>
+	<parameter name="sNUM" class="java.lang.String"/>
+	<parameter name="eNUM" class="java.lang.String"/>
+	<parameter name="attorneyName" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     CRAK_ATTORNEYSCASE."FNAME" AS CRAK_ATTORNEYSCASE_FNAME,
+     CRAK_ATTORNEYSCASE."LNAME" AS CRAK_ATTORNEYSCASE_LNAME,
+     CRAK_ATTORNEYSCASE."SDATE" AS CRAK_ATTORNEYSCASE_SDATE,
+     CRAK_ATTORNEYSCASE."NAME" AS CRAK_ATTORNEYSCASE_NAME
+FROM
+     "WINTER342"."CRAK_ATTORNEYSCASE" CRAK_ATTORNEYSCASE
+WHERE CRAK_ATTORNEYSCASE."ATTORNEYID" = $P{attorneyNUM} AND
+      CRAK_ATTORNEYSCASE."SDATE" > $P{sNUM}]]>
+	</queryString>
+	<field name="CRAK_ATTORNEYSCASE_LNAME" class="java.lang.String"/>
+	<field name="CRAK_ATTORNEYSCASE_FNAME" class="java.lang.String"/>
+	<field name="CRAK_ATTORNEYSCASE_SDATE" class="java.sql.Timestamp"/>
+	<field name="CRAK_ATTORNEYSCASE_NAME" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="b6f05f4e-c47a-42d8-ba18-ffc8f82e7859"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="f6b76591-8b43-4990-9457-6e6ecdc71e5c"/>
+					<textElement>
+						<font size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Attorney Report]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="63" width="180" height="20" forecolor="#FFFFFF" uuid="a091e642-80f6-4821-acf8-26108b978ab9"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="87c8fcf8-19e6-4f31-b99f-44edb825920b"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="157">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="c9bbb468-dedf-451e-bd1f-ee1d853d890e"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="44" width="149" height="20" uuid="4ffcf915-99af-4d7b-a736-3086d4a1ccb0"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_ATTORNEYSCASE_LNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="157" y="44" width="138" height="20" uuid="61b036a7-f574-4f16-bd06-02a246a5d85e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_ATTORNEYSCASE_FNAME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="129" width="308" height="20" uuid="de0fd9dd-4cce-4b71-9c3e-30d8769a4335"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_ATTORNEYSCASE_SDATE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="89" width="308" height="20" uuid="cee6e6af-0b27-4669-99e5-51dc400d2429"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CRAK_ATTORNEYSCASE_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="149" y="44" width="8" height="20" uuid="a56ed356-efd1-4385-af57-720042dcd212"/>
+				<text><![CDATA[,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20" uuid="ad4ebaf2-ef37-44e2-a1ab-ee95e19905de"/>
+				<text><![CDATA[Attorney]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="69" width="100" height="20" uuid="7a0a9b9c-c869-4135-9810-e251ba5f16ad"/>
+				<text><![CDATA[Case Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="109" width="100" height="20" uuid="41e6e289-b436-4a80-9eac-f1b8687eac96"/>
+				<text><![CDATA[Case Date]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="45">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="16" width="515" height="13" backcolor="#E6E6E6" uuid="1d4fd9e2-8104-4acb-8b6d-2158f99f78a6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="16" width="40" height="13" backcolor="#E6E6E6" uuid="0e654647-df57-49e7-9289-c1c33c6562d4"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="16" width="100" height="13" uuid="77263f3e-8227-484e-bb5d-149f9697fbce"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
